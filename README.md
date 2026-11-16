@@ -72,7 +72,7 @@ Il faut bien inclure `reconstruction-apres-rendu/` à la compilation : la raison
 
 ## Ma contribution
 
-D'après notre rapport, nous avons travaillé à deux en même temps, en partageant le code dans IntelliJ, chacun sur des aspects différents et en s'entraidant. Nous n'avons pas noté de répartition plus précise, et aucun fichier ne porte de nom d'auteur. Je ne m'attribue donc pas de partie précise. Je connais l'ensemble de l'architecture et des règles implémentées, et je peux les expliquer.
+D'après notre rapport, nous avons travaillé à deux en même temps, en partageant le code dans IntelliJ, chacun sur des aspects différents et en s'entraidant. Nous n'avons pas noté de répartition plus précise, et aucun fichier ne porte de nom d'auteur.
 
 ## Limites connues
 
