@@ -1,0 +1,97 @@
+Rapport de projet POGL
+
+
+Matias LIEVAIN–PAREDES
+CLEMENT Carlos
+
+
+1. Parties du sujet traitées :
+
+
+Nous avons traité toutes les parties du sujet obligatoires. Pour la dernière partie, intitulée ‘Vraie aventure’, nous avons implémenté les deux extensions suivantes : l’échange des clés et les actions spéciales (sac de sable et transport par hélicoptère). 
+
+
+Dans notre jeu, les quatre joueurs commencent au centre du plateau qui est un carré de taille 8x8. L’héliport est au centre de ce carré, les quatre temples dans les coins et les artefacts dessus. Le bouton assécher permet d’assécher une des zones situées autour du joueur, celle du joueur inclus. Le bouton échange de clés permet au joueur de donner une des clés qu’il possède à un autre joueur situé dans la même zone que lui. Le bouton ramasser artefact permet au joueur de ramasser un artefact s’il se trouve dans une zone où se situe un artefact et s’il possède au moins quatre clés du même type que l’artefact qu’il essaie de ramasser. Le bouton chercher clé permet au joueur d’essayer de chercher une clé. 4 actions différentes peuvent s’enclencher à sa suite. Soit rien ne se passe, soit le joueur reçoit une clé, soit la zone du joueur s’inonde, soit le joueur reçoit une action spéciale.
+
+
+Il y a ensuite le bouton de fin de tour qui inonde trois zones aléatoires. Si un joueur lors du ramassage de clés ou lors de l’inondation des trois zones aléatoires se retrouve sur une zone submergée, il peut se déplacer vers une zone voisine non submergée.
+
+
+Le bouton action spéciale permet au joueur d’utiliser une des actions spéciales qu’il possède. Si le joueur décide d’utiliser sac de sable, il choisit une zone au choix inondée qui sera à nouveau en état normal. Pour l’action hélicoptère, le joueur décide quels joueurs dans sa zone, il va transporter avec lui, puis une zone au choix non submergée où tous les joueurs se déplaceront.
+
+
+La partie est gagnée si tous les joueurs se trouvent dans la zone hélicoptère en portant les 4 artefacts avec eux. La partie est perdue si un des joueurs meurt ou si une zone où se trouve l’artefact est inondée lorsque l’artefact se trouve encore dessus.
+
+
+2. Choix d’architectures :
+
+
+Le diagramme d’objet est en pièce jointe dans le dossier du projet, celui-ci a été produit par intelliJ avec quelques modifications de notre part pour le rendre plus lisible.
+
+
+Description linéaire en partant du début:
+
+
+Pour les import, ceux-ci sont faits automatiquement par intelliJ. Il propose certaines bibliothèques selon ce que l’on écrit et on accepte les changements.
+
+
+Nous avons une classe Main très succincte où est initialisé le modèle de l'île ainsi que la vue de celui-ci. On a également créé une classe pour les Zone.
+
+
+Pour la gestion de l’affichage, nous utilisons une classe ImageManager que nous avons créé à l’aide d’un site internet et de la documentation java.
+
+
+Les objets, les zones, l'état des zones, la direction des joueurs et les actions spéciales sont tous des enum pour faciliter la lecture du code.
+
+
+On a utilisé la méthode MVC vue en cours pour implémenter les objets, l'île et le joueur. On implémente de cette façon l’île, les joueurs et les objets. Même si le traitement des objets (ex : échanger clés) se fait directement dans la classe JoueurContrôleur. 
+
+
+Pour différencier les clés et les artefacts, on utilise un booléen dans la classe Objet qui nous dit si l’objet en question est un artefact ou une clé.
+
+
+La dernière classe du projet et JoueurInfoPanel, cette classe permet d’afficher les informations concernant les joueurs (ex : le nombre d’artefacts, les actions spéciales qu’ils possèdent, etc).
+
+
+Explication plus détaillée de nos MVC:
+
+
+* Pour IleModele: un constructeur, un toString et deux getters.
+* Pour IleVue: l’initialisation des boutons se fait dans l’initialisation. Une méthode updateInfoLabels gère l’affichage des messages d’erreur et l’affichage du joueur courant et le nombre d’actions qui lui restent. Une classe faireActionSpéciale permet de gérer celles-ci. Une classe paintComponent permet l’affichage du jeu.
+* Pour IleControleur: On implémente ici la recherche de clé, la fin de tour ainsi que la vérification des situations de victoire et de défaite.
+
+
+* Pour JoueurModele: plusieurs variables pour indiquer les états du joueur, un constructeur, des setters, des getters, les fonctions pour les actions spéciales, une fonction pour: bouger, zones voisines, zones assechables, zones non submergées. Les fonctions pour gérer les artefacts et les clés et un toString
+* Pour JoueurVue: Cette classe permet d’afficher les joueurs sur l’île avec des images différentes pour chaque joueur et une coloration spéciale pour le joueur actif. 
+* Pour JoueurControleur: Cette classe nous permet de gérer les différentes actions du joueur telles que : se déplacer, assécher une zone, ramasser un artefact, échanger une clé ou utiliser l’action spéciale hélicoptère.
+
+
+* Pour ObjetModele: Cette classe nous permet d’initialiser les objets avec leur position et un booléen qui indique s’il s’agit d’un artefact ou d’une clé.
+* Pour ObjetVue: Cette classe permet d’afficher les objets sur l’île avec une image différente par artefact.
+
+
+
+
+
+
+
+
+3. Problèmes présents que l’on a pas pu éliminer :
+
+
+Un des problèmes sur lesquels nous pourrions nous pencher, c'est étendre les situations de perte. Par exemple, le jeu est perdu s'il n’y a plus de chemin reliant les joueurs à un des temples avec un artefact. Ou bien si un joueur se retrouve isolé dans une partie de l’île, sans l’action spéciale hélicoptère et ne peut plus rejoindre l’héliport. Le jeu reste également très difficile à gagner pour les joueurs.
+
+
+4. Morceaux de code écrits à plusieurs ou empruntés ailleurs :
+
+
+L'intégralité du code a été réalisée uniquement par notre binôme. En revanche, certaines parties de celui-ci ont été rédigées à l'aide de sites internets et de la documentation Java sur quelques aspects sur lesquels nous n'étions pas à l'aise.
+
+
+Au niveau de la répartition du travail dans le binôme, on a travaillé tous les deux en même temps en partageant le code grâce à intellij et en codant simultanément sur différents aspects en s'entraidant en cas de besoin. 
+
+
+Détails sur les codes réalisés grâce à internet:
+
+
+Lors de l’écriture de notre code, on a dû aller chercher comment faire, surtout au niveau de l’affichage avec la classe ImageManager et on a parfois adapté des parties de code trouvées sur internet. Notamment, pour pouvoir faire le choix des clés à échanger et avec quel joueur on veut réaliser l'échange. Par exemple, on a dû se renseigner sur l’utilisation des JComboBox qu’on ne maîtrise toujours pas complètement. On a également dû apprendre à utiliser les JDialog.

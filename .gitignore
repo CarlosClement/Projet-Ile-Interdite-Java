@@ -1,0 +1,12 @@
+# Fichiers compilés Java
+*.class
+out/
+build/
+bin/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# macOS
+.DS_Store

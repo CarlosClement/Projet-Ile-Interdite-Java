@@ -1,0 +1,9 @@
+# Projet Java : aucune bibliothèque externe (Swing et AWT sont inclus dans le JDK).
+#
+# Version de l'époque : le projet IntelliJ était configuré avec Amazon Corretto 11
+# (JDK 11, niveau de langage Java 8 pour le module).
+#
+# Vérifié en novembre 2026 : compile avec javac --release 8 et --release 11,
+# et s'exécute avec un JDK 21.
+#
+# Minimum requis : JDK 8 ou plus récent (JDK 11 recommandé pour être au plus près de l'époque).
